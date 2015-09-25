@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{718A026B-1F74-4657-BC87-4043E24D0645}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LAVFiltersLib</RootNamespace>
+    <AssemblyName>LAVFiltersLib</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="IKeyFrameInfo.cs" />
+    <Compile Include="ILAVAudioSettings.cs" />
+    <Compile Include="ILAVAudioStatus.cs" />
+    <Compile Include="ILAVFSettings.cs" />
+    <Compile Include="ILAVVideoSettings.cs" />
+    <Compile Include="ILAVVideoStatus.cs" />
+    <Compile Include="ITrackInfo.cs" />
+    <Compile Include="LAVEnums\AudioSettings\LAVAudioCodec.cs" />
+    <Compile Include="LAVEnums\AudioSettings\LAVAudioMixingMode.cs" />
+    <Compile Include="LAVEnums\AudioSettings\LAVAudioSampleFormat.cs" />
+    <Compile Include="LAVEnums\AudioSettings\LAVBitstreamCodec.cs" />
+    <Compile Include="LAVEnums\AudioSettings\LAVMixingFlags.cs" />
+    <Compile Include="LAVEnums\AudioSettings\LAVMixingLayout .cs" />
+    <Compile Include="LAVEnums\SplitterSettings\LAVSubtitleMode.cs" />
+    <Compile Include="LAVEnums\TrackInfo\TrackType.cs" />
+    <Compile Include="LAVEnums\VideoSettings\LAVDeintFieldOrder.cs" />
+    <Compile Include="LAVEnums\VideoSettings\LAVDeintMode.cs" />
+    <Compile Include="LAVEnums\VideoSettings\LAVDeintOutput.cs" />
+    <Compile Include="LAVEnums\VideoSettings\LAVDitherMode.cs" />
+    <Compile Include="LAVEnums\VideoSettings\LAVHWAccel.cs" />
+    <Compile Include="LAVEnums\VideoSettings\LAVHWDeintModes.cs" />
+    <Compile Include="LAVEnums\VideoSettings\LAVHWResFlag.cs" />
+    <Compile Include="LAVEnums\VideoSettings\LAVOutPixFmts.cs" />
+    <Compile Include="LAVEnums\VideoSettings\LAVSWDeintModes.cs" />
+    <Compile Include="LAVEnums\VideoSettings\LAVVideoCodec.cs" />
+    <Compile Include="LAVEnums\VideoSettings\LAVVideoHWCodec.cs" />
+    <Compile Include="LAVStructs\TrackInfo\TrackElement.cs" />
+    <Compile Include="LAVStructs\TrackInfo\TrackExtendedInfoAudio.cs" />
+    <Compile Include="LAVStructs\TrackInfo\TrackExtendedInfoVideo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
