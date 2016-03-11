@@ -10,6 +10,10 @@
         HWAccel_QuickSync,
         HWAccel_DXVA2,
         HWAccel_DXVA2CopyBack = HWAccel_DXVA2,
-        HWAccel_DXVA2Native
+        HWAccel_DXVA2Native,
+        /// <summary>
+        /// Number of HWAccels
+        /// </summary>
+        HWAccel_NB
     }
 }

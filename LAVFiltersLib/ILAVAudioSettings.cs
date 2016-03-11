@@ -22,7 +22,7 @@ namespace LAVFiltersLib
         /// </remarks>
         /// <param name="bRuntimeConfig"></param>
         [PreserveSig]
-        void SetRuntimeConfig([MarshalAs(UnmanagedType.Bool)] bool bRuntimeConfig);
+        int SetRuntimeConfig([MarshalAs(UnmanagedType.Bool)] bool bRuntimeConfig);
 
         /// <summary>
         /// Dynamic Range Compression
@@ -30,7 +30,7 @@ namespace LAVFiltersLib
         /// <param name="pbDRCEnabled">The state of DRC</param>
         /// <param name="piDRCLevel">The DRC strength (0-100, 100 is maximum)</param>
         [PreserveSig]
-        void GetDRC(
+        int GetDRC(
             [Out, MarshalAs(UnmanagedType.Bool)] out bool pbDRCEnabled,
             [Out] out int piDRCLevel
         );
@@ -41,7 +41,7 @@ namespace LAVFiltersLib
         /// <param name="bDRCEnabled">The state of DRC</param>
         /// <param name="iDRCLevel">The DRC strength (0-100, 100 is maximum)</param>
         [PreserveSig]
-        void SetDRC([MarshalAs(UnmanagedType.Bool)] bool bDRCEnabled, int iDRCLevel);
+        int SetDRC([MarshalAs(UnmanagedType.Bool)] bool bDRCEnabled, int iDRCLevel);
 
         /// <summary>
         /// Get configure which codecs are enabled
@@ -57,7 +57,7 @@ namespace LAVFiltersLib
         /// <param name="aCodec">If aCodec is invalid (possibly a version difference), will return E_FAIL.</param>
         /// <param name="bEnabled"></param>
         [PreserveSig]
-        void SetFormatConfiguration(LAVAudioCodec aCodec, [MarshalAs(UnmanagedType.Bool)] bool bEnabled);
+        int SetFormatConfiguration(LAVAudioCodec aCodec, [MarshalAs(UnmanagedType.Bool)] bool bEnabled);
 
         /// <summary>
         /// Get Bitstreamings
@@ -73,7 +73,7 @@ namespace LAVFiltersLib
         /// <param name="bsCodec">If bsCodec is invalid (possibly a version difference), will return E_FAIL.</param>
         /// <param name="bEnabled"></param>
         [PreserveSig]
-        void SetBitstreamConfig(LAVBitstreamCodec bsCodec, [MarshalAs(UnmanagedType.Bool)] bool bEnabled);
+        int SetBitstreamConfig(LAVBitstreamCodec bsCodec, [MarshalAs(UnmanagedType.Bool)] bool bEnabled);
 
         /// <summary>
         /// Get if "normal" DTS frames be encapsulated in DTS-HD frames when bitstreaming
@@ -87,7 +87,7 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="bHDFraming"></param>
         [PreserveSig]
-        void SetDTSHDFraming([MarshalAs(UnmanagedType.Bool)] bool bHDFraming);
+        int SetDTSHDFraming([MarshalAs(UnmanagedType.Bool)] bool bHDFraming);
 
         /// <summary>
         /// Get Auto A/V syncing
@@ -101,7 +101,7 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="bAutoSync">True - enable</param>
         [PreserveSig]
-        void SetAutoAVSync([MarshalAs(UnmanagedType.Bool)] bool bAutoSync);
+        int SetAutoAVSync([MarshalAs(UnmanagedType.Bool)] bool bAutoSync);
 
         /// <summary>
         /// Get Convert all Channel Layouts to standard layouts
@@ -117,7 +117,7 @@ namespace LAVFiltersLib
         /// <remarks>Standard are: Mono, Stereo, 5.1, 6.1, 7.1</remarks>
         /// <param name="bStdLayout"></param>
         [PreserveSig]
-        void SetOutputStandardLayout([MarshalAs(UnmanagedType.Bool)] bool bStdLayout);
+        int SetOutputStandardLayout([MarshalAs(UnmanagedType.Bool)] bool bStdLayout);
 
         /// <summary>
         /// Get Expand Mono to Stereo by simply doubling the audio
@@ -131,7 +131,7 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="bExpandMono"></param>
         [PreserveSig]
-        void SetExpandMono([MarshalAs(UnmanagedType.Bool)] bool bExpandMono);
+        int SetExpandMono([MarshalAs(UnmanagedType.Bool)] bool bExpandMono);
 
         /// <summary>
         /// Get Expand 6.1 to 7.1 by doubling the back center
@@ -145,7 +145,7 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="bExpand61"></param>
         [PreserveSig]
-        void SetExpand61([MarshalAs(UnmanagedType.Bool)] bool bExpand61);
+        int SetExpand61([MarshalAs(UnmanagedType.Bool)] bool bExpand61);
 
         /// <summary>
         /// Get Allow Raw PCM and SPDIF encoded input
@@ -159,7 +159,7 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="bAllow"></param>
         [PreserveSig]
-        void SetAllowRawSPDIFInput([MarshalAs(UnmanagedType.Bool)] bool bAllow);
+        int SetAllowRawSPDIFInput([MarshalAs(UnmanagedType.Bool)] bool bAllow);
 
         /// <summary>
         /// Get configuration which sample formats are enabled
@@ -176,7 +176,7 @@ namespace LAVFiltersLib
         /// <param name="bEnabled"></param>
         /// <remarks>Note: SampleFormat_Bitstream cannot be controlled by this</remarks>
         [PreserveSig]
-        void SetSampleFormat(LAVAudioSampleFormat format, [MarshalAs(UnmanagedType.Bool)] bool bEnabled);
+        int SetSampleFormat(LAVAudioSampleFormat format, [MarshalAs(UnmanagedType.Bool)] bool bEnabled);
 
         /// <summary>
         /// Get delay for the audio configuration
@@ -184,7 +184,7 @@ namespace LAVFiltersLib
         /// <param name="pbEnabled"></param>
         /// <param name="pDelay">In ms</param>
         [PreserveSig]
-        void GetAudioDelay(
+        int GetAudioDelay(
             [Out, MarshalAs(UnmanagedType.Bool)] out bool pbEnabled,
             [Out] out int pDelay
         );
@@ -195,14 +195,14 @@ namespace LAVFiltersLib
         /// <param name="bEnabled"></param>
         /// <param name="delay">In ms</param>
         [PreserveSig]
-        void SetAudioDelay([MarshalAs(UnmanagedType.Bool)] bool bEnabled, int delay);
+        int SetAudioDelay([MarshalAs(UnmanagedType.Bool)] bool bEnabled, int delay);
 
         /// <summary>
         /// Enable/Disable Mixing
         /// </summary>
         /// <param name="bEnabled">True - enabled</param>
         [PreserveSig]
-        void SetMixingEnabled([MarshalAs(UnmanagedType.Bool)] bool bEnabled);
+        int SetMixingEnabled([MarshalAs(UnmanagedType.Bool)] bool bEnabled);
 
         /// <summary>
         /// Get Mixing status
@@ -216,7 +216,7 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="dwLayout">LAVEnums.AudioSettings.LAVMixingLayout</param>
         [PreserveSig]
-        void SetMixingLayout(uint dwLayout);
+        int SetMixingLayout(uint dwLayout);
 
         /// <summary>
         /// Get Mixing Layout
@@ -230,7 +230,7 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="dwFlags"></param>
         [PreserveSig]
-        void SetMixingFlags([In] LAVMixingFlags dwFlags);
+        int SetMixingFlags([In] LAVMixingFlags dwFlags);
 
         /// <summary>
         /// Get Mixing Flags
@@ -244,7 +244,7 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="mixingMode"></param>
         [PreserveSig]
-        void SetMixingMode(LAVAudioMixingMode mixingMode);
+        int SetMixingMode(LAVAudioMixingMode mixingMode);
 
         /// <summary>
         /// Get Mixing Mode
@@ -260,7 +260,7 @@ namespace LAVFiltersLib
         /// <param name="dwSurroundLevel">Surround Mix Level</param>
         /// <param name="dwLFELevel">LFE Mix Level</param>
         [PreserveSig]
-        void SetMixingLevels(uint dwCenterLevel, uint dwSurroundLevel, uint dwLFELevel);
+        int SetMixingLevels(uint dwCenterLevel, uint dwSurroundLevel, uint dwLFELevel);
 
         /// <summary>
         /// Get Mixing Levels
@@ -269,7 +269,7 @@ namespace LAVFiltersLib
         /// <param name="dwSurroundLevel">Surround Mix Level</param>
         /// <param name="dwLFELevel">LFE Mix Level</param>
         [PreserveSig]
-        void GetMixingLevels(
+        int GetMixingLevels(
             out uint dwCenterLevel,
             out uint dwSurroundLevel,
             out uint dwLFELevel);
@@ -279,7 +279,7 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="bEnabled"></param>
         [PreserveSig]
-        void SetTrayIcon([MarshalAs(UnmanagedType.Bool)] bool bEnabled);
+        int SetTrayIcon([MarshalAs(UnmanagedType.Bool)] bool bEnabled);
 
         /// <summary>
         /// Get Tray Icon status
@@ -293,7 +293,7 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="bEnabled"></param>
         [PreserveSig]
-        void SetSampleConvertDithering([MarshalAs(UnmanagedType.Bool)] bool bEnabled);
+        int SetSampleConvertDithering([MarshalAs(UnmanagedType.Bool)] bool bEnabled);
 
         /// <summary>
         /// Get Dithering for sample format conversion status
@@ -308,7 +308,7 @@ namespace LAVFiltersLib
         /// <param name="bEnabled"></param>
         /// <remarks>This option is NOT persistent</remarks>
         [PreserveSig]
-        void SetSuppressFormatChanges([MarshalAs(UnmanagedType.Bool)] bool bEnabled);
+        int SetSuppressFormatChanges([MarshalAs(UnmanagedType.Bool)] bool bEnabled);
 
         /// <summary>
         /// Get suppression of sample format changes status
@@ -317,5 +317,17 @@ namespace LAVFiltersLib
         /// <remarks>This option is NOT persistent</remarks>
         [PreserveSig]
         bool GetSuppressFormatChanges();
+
+        /// <summary>
+        /// Get if 5.1 legacy layout (using back channels instead of side) is in use
+        /// </summary>
+        /// <returns></returns>
+        bool GetOutput51LegacyLayout();
+
+        /// <summary>
+        /// Use 5.1 legacy layout (using back channels instead of side)
+        /// </summary>
+        /// <param name="b51Legacy"></param>
+        int SetOutput51LegacyLayout([MarshalAs(UnmanagedType.Bool)] bool b51Legacy);
     }
 }

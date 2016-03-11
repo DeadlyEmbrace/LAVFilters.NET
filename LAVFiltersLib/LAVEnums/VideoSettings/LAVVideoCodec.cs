@@ -64,7 +64,7 @@
         Codec_VP9,
         Codec_TrueMotion,
         Codec_VP7,
-
+        Codec_H264MVC,
         /// <summary>
         /// Number of entries (do not use when dynamically linking)
         /// </summary>

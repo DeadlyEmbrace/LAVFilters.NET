@@ -37,7 +37,6 @@ namespace LAVFiltersLib.LAVStructs.TrackInfo
         /// The maximum cache size required to store referenced frames in and the current frame. 0 means no cache is needed.
         /// </summary>
         public uint MaxCache;
-
         /// <summary>
         /// // Specifies the language of the track, in the ISO-639-2 form. (end with '\0')
         /// </summary>

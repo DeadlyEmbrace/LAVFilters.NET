@@ -20,7 +20,7 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="nKFs">Returns S_FALSE when every frame is a keyframe</param>
         [PreserveSig]
-        void GetKeyFrameCount([Out] out uint nKFs);
+        int GetKeyFrameCount([Out] out uint nKFs);
 
         /// <summary>
         /// Get the times of the key frames, if available.
@@ -36,8 +36,8 @@ namespace LAVFiltersLib
         /// SomeKeyFrameInfoCOMObject.GetKeyFrames(MediaTime, pkfsArray, ref nkfs);
         /// </example>
         [PreserveSig]
-        void GetKeyFrames([In, MarshalAs(UnmanagedType.LPStruct)] Guid pFormat, 
-                          [In, Out, MarshalAs(UnmanagedType.LPArray)] long[] pKFs, 
-                          [In, Out] ref uint nKFs);
+        int GetKeyFrames([In, MarshalAs(UnmanagedType.LPStruct)] Guid pFormat,
+                     [In, Out, MarshalAs(UnmanagedType.LPArray)] long[] pKFs,
+                     [In, Out] ref uint nKFs);
     }
 }

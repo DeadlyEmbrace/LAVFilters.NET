@@ -24,14 +24,14 @@ namespace LAVFiltersLib
         /// </remarks>
         /// <param name="bRuntimeConfig"></param>
         [PreserveSig]
-        void SetRuntimeConfig([MarshalAs(UnmanagedType.Bool)] bool bRuntimeConfig);
+        int SetRuntimeConfig([MarshalAs(UnmanagedType.Bool)] bool bRuntimeConfig);
 
         /// <summary>
         /// Retrieve the preferred languages as ISO 639-2 language codes, comma separated
         /// </summary>
         /// <param name="ppLanguages">If the result is NULL, no language has been set</param>
         [PreserveSig]
-        void GetPreferredLanguages([Out, MarshalAs(UnmanagedType.LPWStr)] out StringBuilder ppLanguages);
+        int GetPreferredLanguages([Out, MarshalAs(UnmanagedType.LPWStr)] out StringBuilder ppLanguages);
 
         /// <summary>
         /// Set the preferred languages as ISO 639-2 language codes, comma separated.
@@ -39,7 +39,7 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="pLanguages"></param>
         [PreserveSig]
-        void SetPreferredLanguages([MarshalAs(UnmanagedType.LPWStr)] string pLanguages);
+        int SetPreferredLanguages([MarshalAs(UnmanagedType.LPWStr)] string pLanguages);
 
         /// <summary>
         /// Retrieve the preferred subtitle languages as ISO 639-2 language codes, comma separated.
@@ -49,7 +49,7 @@ namespace LAVFiltersLib
         /// If no subtitle language is set, the main language preference is used.
         /// </remarks>
         [PreserveSig]
-        void GetPreferredSubtitleLanguages([Out, MarshalAs(UnmanagedType.LPWStr)] out StringBuilder ppLanguages);
+        int GetPreferredSubtitleLanguages([Out, MarshalAs(UnmanagedType.LPWStr)] out StringBuilder ppLanguages);
 
         /// <summary>
         /// Set the preferred subtitle languages as ISO 639-2 language codes, comma separated.
@@ -59,7 +59,7 @@ namespace LAVFiltersLib
         /// If no subtitle language is set, the main language preference is used.
         /// </remarks>
         [PreserveSig]
-        void SetPreferredSubtitleLanguages([MarshalAs(UnmanagedType.LPWStr)] string pLanguages);
+        int SetPreferredSubtitleLanguages([MarshalAs(UnmanagedType.LPWStr)] string pLanguages);
 
         /// <summary>
         /// Get the current subtitle mode
@@ -73,7 +73,7 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="mode"></param>
         [PreserveSig]
-        void SetSubtitleMode([In] LAVSubtitleMode mode);
+        int SetSubtitleMode([In] LAVSubtitleMode mode);
 
         /// <summary>
         /// Get the subtitle matching language flag
@@ -89,7 +89,7 @@ namespace LAVFiltersLib
         /// <param name="dwMode">TRUE = Only subtitles with a language in the preferred list will be used; FALSE = All subtitles will be used</param>
         [Obsolete("Do not use anymore, deprecated and non-functional, replaced by advanced subtitle mode", true)]
         [PreserveSig]
-        void SetSubtitleMatchingLanguage([MarshalAs(UnmanagedType.Bool)] bool dwMode);
+        int SetSubtitleMatchingLanguage([MarshalAs(UnmanagedType.Bool)] bool dwMode);
 
         /// <summary>
         /// Control whether a special "Forced Subtitles" stream will be created for PGS subs
@@ -103,7 +103,7 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="bFlag"></param>
         [PreserveSig]
-        void SetPGSForcedStream([MarshalAs(UnmanagedType.Bool)] bool bFlag);
+        int SetPGSForcedStream([MarshalAs(UnmanagedType.Bool)] bool bFlag);
 
         /// <summary>
         /// Get the PGS forced subs config
@@ -117,7 +117,7 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="bForced">TRUE = only forced PGS frames will be shown, FALSE = all frames will be shown</param>
         [PreserveSig]
-        void SetPGSOnlyForced([MarshalAs(UnmanagedType.Bool)] bool bForced);
+        int SetPGSOnlyForced([MarshalAs(UnmanagedType.Bool)] bool bForced);
 
         /// <summary>
         /// Get the VC-1 Timestamp Processing mode
@@ -131,7 +131,7 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="iMode">0 - No Timestamp Correction, 1 - Always Timestamp Correction, 2 - Auto (Correction for Decoders that need it)</param>
         [PreserveSig]
-        void SetVC1TimestampMode(int iMode);
+        int SetVC1TimestampMode(int iMode);
 
         /// <summary>
         /// Set whether substreams (AC3 in TrueHD, for example) should be shown as a separate stream
@@ -145,11 +145,11 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="bSubStreams"></param>
         [PreserveSig]
-        void SetSubstreamsEnabled([MarshalAs(UnmanagedType.Bool)] bool bSubStreams);
+        int SetSubstreamsEnabled([MarshalAs(UnmanagedType.Bool)] bool bSubStreams);
 
         [Obsolete("No longer required", false)]
         [PreserveSig]
-        void SetVideoParsingEnabled([MarshalAs(UnmanagedType.Bool)] bool bEnabled);
+        int SetVideoParsingEnabled([MarshalAs(UnmanagedType.Bool)] bool bEnabled);
 
         [Obsolete("No longer required", false)]
         [PreserveSig]
@@ -161,7 +161,7 @@ namespace LAVFiltersLib
         /// <param name="bEnabled"></param>
         [Obsolete("No longer required", false)]
         [PreserveSig]
-        void SetFixBrokenHDPVR([MarshalAs(UnmanagedType.Bool)] bool bEnabled);
+        int SetFixBrokenHDPVR([MarshalAs(UnmanagedType.Bool)] bool bEnabled);
 
         /// <summary>
         /// Query if LAV Splitter should try to fix broken HD-PVR streams
@@ -196,7 +196,7 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="bEnabled"></param>
         [PreserveSig]
-        void SetStreamSwitchRemoveAudio([MarshalAs(UnmanagedType.Bool)] bool bEnabled);
+        int SetStreamSwitchRemoveAudio([MarshalAs(UnmanagedType.Bool)] bool bEnabled);
 
         /// <summary>
         /// Query if LAV Splitter should always completely remove the filter connected to its Audio Pin when the audio stream is changed
@@ -210,21 +210,21 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="ppAdvancedConfig">If no advanced config exists, will be NULL.</param>
         [PreserveSig]
-        void GetAdvancedSubtitleConfig([Out, MarshalAs(UnmanagedType.LPStr)] out StringBuilder ppAdvancedConfig);
+        int GetAdvancedSubtitleConfig([Out, MarshalAs(UnmanagedType.LPStr)] out StringBuilder ppAdvancedConfig);
 
         /// <summary>
         /// Advanced Subtitle configuration. Refer to the documention for details.
         /// </summary>
         /// <param name="pAdvancedConfig">To reset the config, pass NULL or the empty string.</param>
         /// <remarks>If no subtitle language is set, the main language preference is used.</remarks>
-        void SetAdvancedSubtitleConfig([MarshalAs(UnmanagedType.LPStr)] string pAdvancedConfig);
+        int SetAdvancedSubtitleConfig([MarshalAs(UnmanagedType.LPStr)] string pAdvancedConfig);
 
         /// <summary>
         /// Set if LAV Splitter should prefer audio streams for the hearing or visually impaired
         /// </summary>
         /// <param name="bEnabled"></param>
         [PreserveSig]
-        void SetUseAudioForHearingVisuallyImpaired([MarshalAs(UnmanagedType.Bool)] bool bEnabled);
+        int SetUseAudioForHearingVisuallyImpaired([MarshalAs(UnmanagedType.Bool)] bool bEnabled);
 
         /// <summary>
         /// Get if LAV Splitter should prefer audio streams for the hearing or visually impaired
@@ -238,21 +238,21 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="dwMaxSize">Value in megabytes</param>
         [PreserveSig]
-        void SetMaxQueueMemSize(int dwMaxSize);
+        int SetMaxQueueMemSize(uint dwMaxSize);
 
         /// <summary>
         /// Get the maximum queue size, in megabytes
         /// </summary>
         /// <returns>Value in megabytes</returns>
         [PreserveSig]
-        int GetMaxQueueMemSize();
+        uint GetMaxQueueMemSize();
 
         /// <summary>
         /// Toggle Tray Icon
         /// </summary>
         /// <param name="bEnabled">True - enable</param>
         [PreserveSig]
-        void SetTrayIcon([MarshalAs(UnmanagedType.Bool)] bool bEnabled);
+        int SetTrayIcon([MarshalAs(UnmanagedType.Bool)] bool bEnabled);
 
         /// <summary>
         /// Get Tray Icon
@@ -266,7 +266,7 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="bEnabled"></param>
         [PreserveSig]
-        void SetPreferHighQualityAudioStreams(bool bEnabled);
+        int SetPreferHighQualityAudioStreams(bool bEnabled);
 
         /// <summary>
         /// Toggle whether higher quality audio streams are preferred
@@ -280,7 +280,7 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="bEnabled"></param>
         [PreserveSig]
-        void SetLoadMatroskaExternalSegments(bool bEnabled);
+        int SetLoadMatroskaExternalSegments(bool bEnabled);
 
         /// <summary>
         /// Get whether Matroska Linked Segments should be loaded from other files
@@ -295,18 +295,34 @@ namespace LAVFiltersLib
         /// <param name="formats"></param>
         /// <param name="nFormats"></param>
         [PreserveSig]
-        void GetFormats([Out, MarshalAs(UnmanagedType.LPTStr)] string formats, uint nFormats);
+        int GetFormats([Out, MarshalAs(UnmanagedType.LPTStr)] string formats, uint nFormats);
 
         /// <summary>
         /// Set the duration (in ms) of analysis for network streams (to find the streams and codec parameters)
         /// </summary>
         /// <param name="dwDuration">Duration in milliseconds</param>
-        void SetNetworkStreamAnalysisDuration(int dwDuration);
+        [PreserveSig]
+        int SetNetworkStreamAnalysisDuration(uint dwDuration);
 
         /// <summary>
         /// // Get the duration (in ms) of analysis for network streams (to find the streams and codec parameters)
         /// </summary>
         /// <returns>Duration in milliseconds</returns>
-        int GetNetworkStreamAnalysisDuration();
+        [PreserveSig]
+        uint GetNetworkStreamAnalysisDuration();
+
+        /// <summary>
+        /// Set the maximum queue size, in number of packets
+        /// </summary>
+        /// <param name="dwMaxSize"></param>
+        [PreserveSig]
+        int SetMaxQueueSize(uint dwMaxSize);
+
+        /// <summary>
+        /// Get the maximum queue size, in number of packets
+        /// </summary>
+        /// <returns></returns>
+        [PreserveSig]
+        uint GetMaxQueueSize();
     }
 }

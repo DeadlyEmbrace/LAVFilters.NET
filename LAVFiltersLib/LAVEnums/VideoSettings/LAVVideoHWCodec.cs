@@ -11,7 +11,8 @@
         HWCodec_MPEG4 = LAVVideoCodec.Codec_MPEG4,
         HWCodec_MPEG2DVD,
         HWCodec_HEVC,
+        HWCodec_VP9,
 
-        HWCodec_NB = HWCodec_HEVC + 1
+        HWCodec_NB
     };
 }

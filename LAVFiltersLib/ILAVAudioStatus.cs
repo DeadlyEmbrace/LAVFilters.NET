@@ -30,7 +30,7 @@ namespace LAVFiltersLib
         /// <param name="pSampleRate"></param>
         /// <param name="pChannelMask"></param>
         [PreserveSig]
-        void GetDecodeDetails(
+        int GetDecodeDetails(
             [Out, MarshalAs(UnmanagedType.LPStr)]
             out StringBuilder pCodec,
             [Out, MarshalAs(UnmanagedType.LPStr)]
@@ -47,7 +47,7 @@ namespace LAVFiltersLib
         /// <param name="pnChannels"></param>
         /// <param name="pSampleRate"></param>
         /// <param name="pChannelMask"></param>
-        void GetOutputDetails(
+        int GetOutputDetails(
             [Out, MarshalAs(UnmanagedType.LPStr)] out StringBuilder pOutputFormat,
             out int pnChannels,
             out int pSampleRate,
@@ -57,19 +57,19 @@ namespace LAVFiltersLib
         /// <summary>
         /// Enable Volume measurements
         /// </summary>
-        void EnableVolumeStats();
+        int EnableVolumeStats();
 
         /// <summary>
         /// Disable Volume measurements
         /// </summary>
-        void DisableVolumeStats();
+        int DisableVolumeStats();
 
         /// <summary>
         /// Get Volume Average for the given channel
         /// </summary>
         /// <param name="channel"></param>
         /// <param name="pfDb"></param>
-        void GetChannelVolumeAverage(
+        int GetChannelVolumeAverage(
             int channel,
             [Out] out float pfDb
         );

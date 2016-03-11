@@ -15,6 +15,15 @@ namespace LAVFiltersLib
         /// </summary>
         /// <returns></returns>
         [PreserveSig]
+        [return: MarshalAs(UnmanagedType.LPWStr)]
         string GetActiveDecoderName();
+
+        /// <summary>
+        /// Get the name of the currently active hwaccel device
+        /// </summary>
+        /// <param name="pstrDeviceName"></param>
+        /// <returns></returns>
+        [PreserveSig]
+        int GetHWAccelActiveDevice([Out, MarshalAs(UnmanagedType.BStr)] out string pstrDeviceName);
     }
 }

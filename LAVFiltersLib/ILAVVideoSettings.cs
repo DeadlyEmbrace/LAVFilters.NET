@@ -23,7 +23,7 @@ namespace LAVFiltersLib
         /// </remarks>
         /// <param name="bRuntimeConfig"></param>
         [PreserveSig]
-        void SetRuntimeConfig([MarshalAs(UnmanagedType.Bool)] bool bRuntimeConfig);
+        int SetRuntimeConfig([MarshalAs(UnmanagedType.Bool)] bool bRuntimeConfig);
 
         /// <summary>
         /// Check if codec is enabled
@@ -39,7 +39,7 @@ namespace LAVFiltersLib
         /// <param name="vCodec">If vCodec is invalid (possibly a version difference), will return E_FAIL.</param>
         /// <param name="bEnabled"></param>
         [PreserveSig]
-        void SetFormatConfiguration(LAVVideoCodec vCodec, [MarshalAs(UnmanagedType.Bool)] bool bEnabled);
+        int SetFormatConfiguration(LAVVideoCodec vCodec, [MarshalAs(UnmanagedType.Bool)] bool bEnabled);
 
         /// <summary>
         /// Set the number of threads to use for Multi-Threaded decoding (where available)
@@ -50,7 +50,7 @@ namespace LAVFiltersLib
         /// >1 = Multi-Threading with the specified number of threads
         /// </param>
         [PreserveSig]
-        void SetNumThreads(int dwNum);
+        int SetNumThreads(uint dwNum);
 
         /// <summary>
         /// Get the number of threads to use for Multi-Threaded decoding (where available)
@@ -61,7 +61,7 @@ namespace LAVFiltersLib
         /// >1 = Multi-Threading with the specified number of threads
         /// </returns>
         [PreserveSig]
-        int GetNumThreads();
+        uint GetNumThreads();
 
         /// <summary>
         /// Set whether the aspect ratio encoded in the stream should be forwarded to the renderer, 
@@ -73,7 +73,7 @@ namespace LAVFiltersLib
         /// 2 = AR from stream if source is not reliable
         /// </param>
         [PreserveSig]
-        void SetStreamAR(int bStreamAR);
+        int SetStreamAR(uint bStreamAR);
 
         /// <summary>
         /// Get whether the aspect ratio encoded in the stream should be forwarded to the renderer,
@@ -85,7 +85,7 @@ namespace LAVFiltersLib
         /// 2 = AR from stream if source is not reliable
         /// </returns>
         [PreserveSig]
-        int GetStreamAR();
+        uint GetStreamAR();
 
         /// <summary>
         /// Get which pixel formats are enabled for output
@@ -101,7 +101,7 @@ namespace LAVFiltersLib
         /// <param name="pixFmt">If pixFmt is invalid will return E_FAIL</param>
         /// <param name="bEnabled"></param>
         [PreserveSig]
-        void SetPixelFormat(LAVOutPixFmts pixFmt, [MarshalAs(UnmanagedType.Bool)] bool bEnabled);
+        int SetPixelFormat(LAVOutPixFmts pixFmt, [MarshalAs(UnmanagedType.Bool)] bool bEnabled);
 
         /// <summary>
         /// Set the RGB output range for the YUV->RGB conversion
@@ -112,7 +112,7 @@ namespace LAVFiltersLib
         /// 2 = Full (0-255)
         /// </param>
         [PreserveSig]
-        void SetRGBOutputRange(int dwRange);
+        int SetRGBOutputRange(uint dwRange);
 
         /// <summary>
         /// Get the RGB output range for the YUV->RGB conversion
@@ -123,14 +123,14 @@ namespace LAVFiltersLib
         /// 2 = Full (0-255)
         /// </returns>
         [PreserveSig]
-        int GetRGBOutputRange();
+        uint GetRGBOutputRange();
 
         /// <summary>
         /// Set the deinterlacing field order of the hardware decoder
         /// </summary>
         /// <param name="fieldOrder"></param>
         [PreserveSig]
-        void SetDeintFieldOrder(LAVDeintFieldOrder fieldOrder);
+        int SetDeintFieldOrder(LAVDeintFieldOrder fieldOrder);
 
         /// <summary>
         /// Get the deinterlacing field order of the hardware decoder
@@ -145,7 +145,7 @@ namespace LAVFiltersLib
         /// <param name="bAggressive"></param>
         [Obsolete("Use SetDeinterlacingMode", false)]
         [PreserveSig]
-        void SetDeintAggressive([MarshalAs(UnmanagedType.Bool)] bool bAggressive);
+        int SetDeintAggressive([MarshalAs(UnmanagedType.Bool)] bool bAggressive);
 
         /// <summary>
         /// Get wether all frames should be deinterlaced if the stream is flagged interlaced
@@ -161,7 +161,7 @@ namespace LAVFiltersLib
         /// <param name="bForce"></param>
         [Obsolete("Use SetDeinterlacingMode", false)]
         [PreserveSig]
-        void SetDeintForce([MarshalAs(UnmanagedType.Bool)] bool bForce);
+        int SetDeintForce([MarshalAs(UnmanagedType.Bool)] bool bForce);
 
         /// <summary>
         /// Get wether all frames should be deinterlaced, even ones marked as progressive
@@ -185,7 +185,7 @@ namespace LAVFiltersLib
         /// 2 = Currently running
         /// </returns>
         [PreserveSig]
-        int CheckHWAccelSupport(LAVHWAccel hwAccel);
+        uint CheckHWAccelSupport(LAVHWAccel hwAccel);
 
         /// <summary>
         /// Set which HW Accel method is used
@@ -193,7 +193,7 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="hwAccel"></param>
         [PreserveSig]
-        void SetHWAccel(LAVHWAccel hwAccel);
+        int SetHWAccel(LAVHWAccel hwAccel);
 
         /// <summary>
         /// Get which HW Accel method is active
@@ -208,7 +208,7 @@ namespace LAVFiltersLib
         /// <param name="hwAccelCodec"></param>
         /// <param name="bEnabled"></param>
         [PreserveSig]
-        void SetHWAccelCodec(LAVVideoHWCodec hwAccelCodec, [MarshalAs(UnmanagedType.Bool)] bool bEnabled);
+        int SetHWAccelCodec(LAVVideoHWCodec hwAccelCodec, [MarshalAs(UnmanagedType.Bool)] bool bEnabled);
 
         /// <summary>
         /// Get which codecs should use HW Acceleration
@@ -223,7 +223,7 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="deintMode"></param>
         [PreserveSig]
-        void SetHWAccelDeintMode(LAVHWDeintModes deintMode);
+        int SetHWAccelDeintMode(LAVHWDeintModes deintMode);
 
         /// <summary>
         /// Get the deinterlacing mode used by the hardware decoder
@@ -237,7 +237,7 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="deintOutput"></param>
         [PreserveSig]
-        void SetHWAccelDeintOutput(LAVDeintOutput deintOutput);
+        int SetHWAccelDeintOutput(LAVDeintOutput deintOutput);
 
         /// <summary>
         /// Get the deinterlacing output for the hardware decoder
@@ -253,8 +253,9 @@ namespace LAVFiltersLib
         /// Note: this option is not supported on all decoder implementations and/or all operating systems
         /// </remarks>
         /// <param name="bHQ"></param>
+        [Obsolete("HQ deint is always used when available depending on platform and codec", false)]
         [PreserveSig]
-        void SetHWAccelDeintHQ([MarshalAs(UnmanagedType.Bool)] bool bHQ);
+        int SetHWAccelDeintHQ([MarshalAs(UnmanagedType.Bool)] bool bHQ);
 
         /// <summary>
         /// Get whether the hardware decoder should force high-quality deinterlacing
@@ -263,6 +264,7 @@ namespace LAVFiltersLib
         /// Note: this option is not supported on all decoder implementations and/or all operating systems
         /// </remarks>
         /// <returns></returns>
+        [Obsolete("HQ deint is always used when available depending on platform and codec", false)]
         [PreserveSig]
         bool GetHWAccelDeintHQ();
 
@@ -271,7 +273,7 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="deintMode"></param>
         [PreserveSig]
-        void SetSWDeintMode(LAVSWDeintModes deintMode);
+        int SetSWDeintMode(LAVSWDeintModes deintMode);
 
         /// <summary>
         /// Get the software deinterlacing mode used
@@ -285,7 +287,7 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="deintOutput"></param>
         [PreserveSig]
-        void SetSWDeintOutput(LAVDeintOutput deintOutput);
+        int SetSWDeintOutput(LAVDeintOutput deintOutput);
 
         /// <summary>
         /// Get the software deinterlacing output
@@ -300,7 +302,7 @@ namespace LAVFiltersLib
         /// <param name="bEnabled"></param>
         [Obsolete("Use SetDeinterlacingMode", false)]
         [PreserveSig]
-        void SetDeintTreatAsProgressive([MarshalAs(UnmanagedType.Bool)] bool bEnabled);
+        int SetDeintTreatAsProgressive([MarshalAs(UnmanagedType.Bool)] bool bEnabled);
 
         /// <summary>
         /// Get wether all content is treated as progressive, and any interlaced flags are ignored
@@ -315,7 +317,7 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="ditherMode"></param>
         [PreserveSig]
-        void SetDitherMode(LAVDitherMode ditherMode);
+        int SetDitherMode(LAVDitherMode ditherMode);
 
         /// <summary>
         /// Get the dithering mode used
@@ -329,7 +331,7 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="bEnabled"></param>
         [PreserveSig]
-        void SetUseMSWMV9Decoder([MarshalAs(UnmanagedType.Bool)] bool bEnabled);
+        int SetUseMSWMV9Decoder([MarshalAs(UnmanagedType.Bool)] bool bEnabled);
 
         /// <summary>
         /// Get if the MS WMV9 DMO Decoder should be used for VC-1/WMV3
@@ -343,7 +345,7 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="bEnabled"></param>
         [PreserveSig]
-        void SetDVDVideoSupport([MarshalAs(UnmanagedType.Bool)] bool bEnabled);
+        int SetDVDVideoSupport([MarshalAs(UnmanagedType.Bool)] bool bEnabled);
 
         /// <summary>
         /// Get if DVD Video support is enabled
@@ -357,7 +359,7 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="dwFlags">flags: bitmask of LAVHWResFlag flags</param>
         [PreserveSig]
-        void SetHWAccelResolutionFlags([In] LAVHWResFlag dwFlags);
+        int SetHWAccelResolutionFlags([In] LAVHWResFlag dwFlags);
 
         /// <summary>
         /// Get the HW Accel Resolution Flags
@@ -371,7 +373,7 @@ namespace LAVFiltersLib
         /// </summary>
         /// <param name="bEnabled"></param>
         [PreserveSig]
-        void SetTrayIcon([MarshalAs(UnmanagedType.Bool)] bool bEnabled);
+        int SetTrayIcon([MarshalAs(UnmanagedType.Bool)] bool bEnabled);
 
         /// <summary>
         /// Get Tray Icon
@@ -382,7 +384,7 @@ namespace LAVFiltersLib
 
         //Set the Deint Mode
         [PreserveSig]
-        void SetDeinterlacingMode(LAVDeintMode deintMode);
+        int SetDeinterlacingMode(LAVDeintMode deintMode);
 
         /// <summary>
         /// Get the Deint Mode
@@ -401,6 +403,59 @@ namespace LAVFiltersLib
         /// </remarks>
         /// <param name="dwDevice">GPU device index within the system</param>
         [PreserveSig]
-        void SetGPUDeviceIndex(int dwDevice);
+        int SetGPUDeviceIndex(uint dwDevice);
+
+        /// <summary>
+        /// Set the index of the GPU to be used for hardware decoding
+        /// Only supported for CUVID and DXVA2 copy-back.If the device is not valid, it'll fallback to auto-detection
+        /// Must be called before an input is connected to LAV Video, and the setting is non-persistent
+        /// NOTE: For CUVID, the index defines the index of the CUDA capable device, while for DXVA2, the list includes all D3D9 devices
+        /// </summary>
+        /// <param name="hwAccel"></param>
+        /// <returns></returns>
+        [PreserveSig]
+        int GetHWAccelNumDevices(LAVHWAccel hwAccel);
+
+        /// <summary>
+        /// Get a list of available HWAccel devices for the specified HWAccel
+        /// </summary>
+        /// <param name="hwAccel"></param>
+        /// <param name="dwIndex"></param>
+        /// <param name="pstrDeviceName"></param>
+        /// <param name="pdwDeviceIdentifier"></param>
+        /// <returns></returns>
+        [PreserveSig]
+        int GetHWAccelDeviceInfo(LAVHWAccel hwAccel, uint dwIndex, [Out, MarshalAs(UnmanagedType.BStr)] out string pstrDeviceName, [Out] out uint pdwDeviceIdentifier);
+
+        /// <summary>
+        /// Get the device for a specified HWAccel
+        /// In contrast to SetGPUDeviceIndex, this setting is hwaccel-specific and persistent
+        /// </summary>
+        /// <param name="hwAccel"></param>
+        /// <param name="pdwDeviceIdentifier"></param>
+        /// <returns></returns>
+        [PreserveSig]
+        int GetHWAccelDeviceIndex(LAVHWAccel hwAccel, [Out] out uint pdwDeviceIdentifier);
+
+        /// <summary>
+        /// Set the device for a specified HWAccel
+        /// In contrast to SetGPUDeviceIndex, this setting is hwaccel-specific and persistent
+        /// </summary>
+        /// <param name="hwAccel"></param>
+        /// <param name="dwIndex"></param>
+        /// <param name="dwDeviceIdentifier">dwDeviceIdentifier is an optional parameter that identifies the selected device (ie. its device id), set to 0 if not used</param>
+        /// <returns></returns>
+        [PreserveSig]
+        int SetHWAccelDeviceIndex(LAVHWAccel hwAccel, uint dwIndex, int dwDeviceIdentifier);
+
+        /// <summary>
+        /// Temporary Override for players to disable H.264 MVC decoding
+        /// This is not a permanent setting and not saved, but can be used by players to offer a "Play in 2D" option, or similar.
+        /// A setting of FALSE disable MVC decoding temporarily
+        /// Note that the override cannot force-enable the option if its turned off through SetFormatConfiguration
+        /// </summary>
+        /// <returns></returns>
+        [PreserveSig]
+        int SetH264MVCDecodingOverride([In, MarshalAs(UnmanagedType.Bool)]bool bEnabled);
     }
 }
